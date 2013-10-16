@@ -1,6 +1,11 @@
 <h2>Comments</h2>
 
-<%@comments.each do |comment|%>
+<%@all_comments.each do |comment|%>
+Votes: 
+<div id="vote_count_<%=comment.id%>">
+  <%=comment.commentvotes.size%>
+</div>
+<a href="#" value="<%=comment.id%>" class="cvote">Vote Up!</a>
 <%=comment.user.username%> says:
 <%=comment.content%><br><br>
 <%end%>

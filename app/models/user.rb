@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :comments
+  has_many :postvotes
+  has_many :commentvotes
 
   def password
     @password ||= Password.new(password_digest)

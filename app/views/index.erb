@@ -5,8 +5,14 @@
 <% end %>
 
 <h2>Super Links</h2>
-<% Post.all.each do |post| %>
+<% @all_posts.each do |post| %>
 <a href="<%=post.url%>"><%= post.title%></a>
+<br>
+Votes: 
+<div id="vote_count_<%=post.id%>">
+  <%=post.postvotes.size%>
+</div>
+<a href="#" value="<%=post.id%>" class="vote">Vote Up!</a>
 <br>
 Created by: <%if post.user%><%=post.user.username%><%end%><br>
 <a href="comments/<%=post.id%>">Comments</a>
