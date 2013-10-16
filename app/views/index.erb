@@ -1,0 +1,15 @@
+<% if !session[:user_id] %>
+  <nav><a href="/login">Login/Sign Up</a></nav>
+<% else %>
+  <nav><a href="/createpost">Submit a Post</a> -- Logged in as <%=@user.username%> -- <a href="/logout">Logout?</a></nav>
+<% end %>
+
+<h2>Super Links</h2>
+<% Post.all.each do |post| %>
+<a href="<%=post.url%>"><%= post.title%></a>
+<br>
+Created by: <%if post.user%><%=post.user.username%><%end%><br>
+<a href="comments/<%=post.id%>">Comments</a>
+<br>
+<br>
+<% end %>
